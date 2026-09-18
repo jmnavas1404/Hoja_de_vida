@@ -1,6 +1,6 @@
 import qrcode
 
-url = "https://TU-ENLACE-AL-PDF"
+url = "https://jmnavas1404.github.io/Hoja_de_vida/"
 
 qr = qrcode.QRCode(
     error_correction=qrcode.constants.ERROR_CORRECT_H,
