@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TU NOMBRE · Hoja de vida / Lebenslauf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --es-bg: #f4c542;
+      --es-ink: #1d1a12;
+      --de-bg: #1b2a41;
+      --de-ink: #f3f5f8;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    main {
+      display: flex;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    a.lang {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.5rem, 5vw, 4rem);
+      text-decoration: none;
+      transition: flex 0.3s ease;
+    }
+    a.lang:hover, a.lang:focus-visible { flex: 1.25; }
+    a.lang:focus-visible { outline: 4px solid currentColor; outline-offset: -12px; }
+    .es { background: var(--es-bg); color: var(--es-ink); }
+    .de { background: var(--de-bg); color: var(--de-ink); }
+    .name { font-size: 1rem; font-weight: 400; }
+    .word {
+      font-size: clamp(3.5rem, 12vw, 9rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .action { font-size: 1.125rem; margin-top: 1rem; text-decoration: underline; text-underline-offset: 0.3em; }
+    @media (max-width: 700px) {
+      main { flex-direction: column; }
+      a.lang { padding: 1.5rem; }
+      a.lang:hover, a.lang:focus-visible { flex: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      a.lang { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- Cambia "Hoja_de_vida_2026.pdf" y "CV_2026.pdf" por los nombres reales de tus archivos -->
+    <a class="lang es" id="es" href="Hoja_de_vida_2026.pdf" hreflang="es">
+      <span class="name">TU NOMBRE</span>
+      <span>
+        <span class="word">Español</span><br>
+        <span class="action">Abrir mi hoja de vida (PDF)</span>
+      </span>
+    </a>
+    <a class="lang de" id="de" href="CV_2026.pdf" hreflang="de">
+      <span class="name">TU NOMBRE</span>
+      <span>
+        <span class="word">Deutsch</span><br>
+        <span class="action">Meinen Lebenslauf öffnen (PDF)</span>
+      </span>
+    </a>
+  </main>
+
+  <script>
+    // En móvil, muestra primero el idioma del navegador de quien escanea.
+    (function () {
+      var lang = (navigator.language || "es").toLowerCase();
+      if (lang.indexOf("de") === 0) {
+        document.getElementById("de").style.order = "-1";
+        document.documentElement.lang = "de";
+      }
+    })();
+  </script>
+</body>
+</html>
